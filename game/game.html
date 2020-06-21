@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<canvas id="game" width="500px" height="500px"></canvas>
+
+<body onload="docReady()">
+    <img src="down.PNG" style="position: absolute; left:0; top:0" alt="" id="down">
+    <img src="down.PNG" style="position: absolute; left:250px ; top:250px; width: 60px; height: 80px;" alt="" id="down1">
+    <script>
+        function downArrowPressed() {
+            var element = document.getElementById("down");
+            element.src = 'down.PNG'
+            if (element.style.top == 170 + "px") {
+                if (element.style.left >= 200 + "px" && element.style.left <= 290 + "px") {
+                    element.style.top = parseInt(element.style.top) + 'px';
+                } else {
+                    element.style.top = parseInt(element.style.top) + 5 + 'px';
+                }}
+            else {
+                element.style.top = parseInt(element.style.top) + 5 + 'px';
+                }
+        }
+        function upArrowPressed() {
+            var element = document.getElementById("down");
+            element.src = 'up.PNG'
+            if (element.style.top == 330 + "px") {
+                if (element.style.left >= 200 + "px" && element.style.left <= 290 + "px") {
+                    element.style.top = parseInt(element.style.top) + 'px';
+                } else {
+                    element.style.top = parseInt(element.style.top) - 5 + 'px';
+                }}
+            else {
+                    element.style.top = parseInt(element.style.top) - 5 + 'px';
+                }
+        }
+
+        function leftArrowPressed() {
+            var element = document.getElementById("down");
+            element.src = 'left1.PNG'
+            if (element.style.left == 300 + "px") {
+                if (element.style.top >= 180 + "px" && element.style.top <= 320 + "px") {
+                    element.style.left = parseInt(element.style.left) + 'px';
+                } else {
+                    element.style.left = parseInt(element.style.left) - 5 + 'px';
+                }}
+            else {
+                    element.style.left = parseInt(element.style.left) - 5 + 'px';
+                }
+        }
+        function rightArrowPressed() {
+            var element = document.getElementById("down");
+            element.src = 'right.PNG'
+            if (element.style.left == 190 + "px") {
+                if (element.style.top >= 180 + "px" && element.style.top <= 320 + "px") {
+                    element.style.left = parseInt(element.style.left) + 'px';
+                } else {
+                    element.style.left = parseInt(element.style.left) + 5 + 'px';
+                }}
+            else {
+                    element.style.left = parseInt(element.style.left) + 5 + 'px';
+                }
+        }
+        function moveSelection(evt) {
+            switch (evt.keyCode) {
+                case 37:
+                    leftArrowPressed();
+                    break;
+                case 39:
+                    rightArrowPressed();
+                    break;
+                case 38:
+                    upArrowPressed();
+                    break;
+                case 40:
+                    downArrowPressed();
+                    break;
+            }
+        }
+        function docReady() {
+            window.addEventListener('keydown', moveSelection);
+        }
+    </script>
+</body>
+
+</html>
